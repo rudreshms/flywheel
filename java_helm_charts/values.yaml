@@ -1,0 +1,92 @@
+replicaCount: 2
+
+image:
+  repository: myrepo/java-app
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+serviceAccount:
+  create: true
+  name: ""
+  annotations: {}
+  # Example:
+  # annotations:
+  #   eks.amazonaws.com/role-arn: arn:aws:iam::123456789012:role/YourIRSAServiceRole
+
+resources:
+  limits:
+    cpu: "1000m"       # 1 vCPU
+    memory: "1Gi"      # 1 GiB
+  requests:
+    cpu: "500m"        # 0.5 vCPU
+    memory: "512Mi"    # 512 MiB
+
+jvm:
+  Xmx: "512m"
+  Xms: "256m"
+  extraArgs: ""
+
+env:
+  - name: SPRING_PROFILES_ACTIVE
+    value: "prod"
+
+livenessProbe:
+  enabled: true
+  path: /actuator/health/liveness
+  port: 8080
+  initialDelaySeconds: 60
+  periodSeconds: 20
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+readinessProbe:
+  enabled: true
+  path: /actuator/health/readiness
+  port: 8080
+  initialDelaySeconds: 20
+  periodSeconds: 10
+  timeoutSeconds: 3
+  failureThreshold: 3
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  # Using autoscaling/v2 metrics: cpu & memory targets
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 60
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 75
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+pdb:
+  enabled: true
+  minAvailable: 1
+
+ingress:
+  enabled: false
+  className: ""
+  hosts:
+    - host: myapp.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []

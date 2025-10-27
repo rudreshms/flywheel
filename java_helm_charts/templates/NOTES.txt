@@ -1,0 +1,11 @@
+1. To install:
+   $ helm install java-app ./java-app-chart -n production --create-namespace
+
+2. To upgrade:
+   $ helm upgrade java-app ./java-app-chart -n production -f values.yaml
+
+3. To check HPA:
+   $ kubectl get hpa -n production
+
+4. If using ECR images with IRSA:
+   - Create an IAM role and associate it with the service account using annotations in values.yaml.serviceAccount.annotations
