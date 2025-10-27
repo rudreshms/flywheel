@@ -2,7 +2,7 @@
 
 ## Task 1:
 Provide terraform for a 3-tier network with Postgres rds, fault tolerance, and load balancing - please use multiple terraform state files.
-Refer to this github link: https://github.com/rudreshms/flywheel/terraform-3tier-network.git
+Refer to this github link: (https://github.com/rudreshms/flywheel/tree/main/terraform-aws-3tier)
 
 
 ## Task 2:
@@ -14,7 +14,7 @@ https://github.com/rudreshms/flywheel/blob/main/Task2_Tier3_NetworkDiagram.drawi
 
 ## Task 3:
 Provide a helm chart for a Java application, and please specify scaling and resources.
-Refer to this github link: https://github.com/rudreshms/flywheel/java-helm-charts.git
+Refer to this github link: (https://github.com/rudreshms/flywheel/tree/main/java_helm_charts)
 
 NOTE: Ran the helm charts locally to test both lint and dry run feature, so that the same charts can be directly ran at cluster level.
 
