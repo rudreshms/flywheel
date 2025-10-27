@@ -2,26 +2,33 @@
 
 ## Task 1:
 Provide terraform for a 3-tier network with Postgres rds, fault tolerance, and load balancing - please use multiple terraform state files.
-Refer to this github link: (https://github.com/rudreshms/flywheel/tree/main/terraform-aws-3tier)
+
+Solution: Refer to this github path: (https://github.com/rudreshms/flywheel/tree/main/terraform-aws-3tier)
+NOTE: I have ran and tested above TF code repo on my aws free tier account using below set of TF commands
+terraform init
+terraform validate
+terraform fmt
+terraform plan  --> terraform apply step is not performed as it incurs AWS cost.
 
 
 ## Task 2:
 Provide a network diagram for the 3-tier network - please use strictly AWS.
-https://github.com/rudreshms/flywheel/blob/main/Task2_Tier3_NetworkDiagram.drawio
 
+Solution: https://github.com/rudreshms/flywheel/blob/main/Task2_Tier3_NetworkDiagram.drawio
 <img width="895" height="749" alt="3Tier-Network-Architecture-AWSCloud" src="https://github.com/user-attachments/assets/7ecba587-ee7f-4573-92ed-cde975f08249" />
 
 
 ## Task 3:
 Provide a helm chart for a Java application, and please specify scaling and resources.
-Refer to this github link: (https://github.com/rudreshms/flywheel/tree/main/java_helm_charts)
 
+Solution: Refer to this github link: (https://github.com/rudreshms/flywheel/tree/main/java_helm_charts)
 NOTE: Ran the helm charts locally to test both lint and dry run feature, so that the same charts can be directly ran at cluster level.
 
 
 ## Task 4:
 Provide a diagram of a standard git-flow merge to main with deployment. Please use git cli commands to demonstrate the process.
-https://github.com/rudreshms/flywheel/blob/main/Standard_Gitflow_Process.drawio
+
+Solution: https://github.com/rudreshms/flywheel/blob/main/Standard_Gitflow_Process.drawio
 
 <img width="514" height="469" alt="Standard_Gitflow_Process" src="https://github.com/user-attachments/assets/244910bd-94c9-4e54-9d73-34e27536efdf" />
 
